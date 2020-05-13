@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_celery_results',
+    # 'kombu.transport.django',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CELERY_BROKER_URL = 'amqp://guest:guest@localhost'
+BROKER_URL = 'django://'
 
 #: Only add pickle to this list if your broker is secured
 #: from unwanted access (see userguide/security.html)
