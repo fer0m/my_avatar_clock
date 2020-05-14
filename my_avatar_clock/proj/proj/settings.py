@@ -123,8 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-BROKER_URL = 'django://'
-
+CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 #: Only add pickle to this list if your broker is secured
 #: from unwanted access (see userguide/security.html)
 CELERY_ACCEPT_CONTENT = ['json']
