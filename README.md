@@ -1,2 +1,3 @@
-# my_avatar_clock
-1
+Telegram avatar as clock
+
+Simple app for fun.
