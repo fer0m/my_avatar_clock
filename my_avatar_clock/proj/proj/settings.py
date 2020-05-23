@@ -29,6 +29,7 @@ environ.Env.read_env()  # reading .env file
 SECRET_KEY = env('SECRET_KEY')
 API_ID = env('API_ID')
 API_HASH = env('API_HASH')
+PHONE_NUMBER = env('PHONE_NUMBER')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
@@ -129,3 +130,6 @@ CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'
 CELERY_TASK_SERIALIZER = 'json'
+CELERY_IMPORTS = ("celery",)
+
+PICTURE_NAME = 'avatar_image.png'
