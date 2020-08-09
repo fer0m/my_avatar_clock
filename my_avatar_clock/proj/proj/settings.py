@@ -17,6 +17,7 @@ import environ
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONT_DIR = f'{BASE_DIR}/fonts/'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -27,17 +28,13 @@ env = environ.Env(
 
 environ.Env.read_env()  # reading .env file
 SECRET_KEY = env('SECRET_KEY')
-API_ID = env('API_ID')
-API_HASH = env('API_HASH')
-PHONE_NUMBER = env('PHONE_NUMBER')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
-
-# Application definition
-
 INSTALLED_APPS = [
+    'telegram_user',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +44,9 @@ INSTALLED_APPS = [
     'django_celery_results',
     # 'kombu.transport.django',
 ]
+
+# Application definition
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

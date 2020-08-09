@@ -3,9 +3,9 @@ from datetime import datetime
 
 from PIL import Image, ImageDraw, ImageFont
 
-from .settings import FONT_DIR, PICTURE_NAME
+from django.conf import settings
 
-CURRENT_FONT = f"{FONT_DIR}/orange juice 2.0.ttf"
+CURRENT_FONT = f"{settings.FONT_DIR}/orange juice 2.0.ttf"
 
 
 def create_image() -> None:
@@ -25,4 +25,4 @@ def create_image() -> None:
     w, h = draw.textsize(msg, font)
     draw.text(((W - w) / 2, (H - h) / 2), msg, fill=(255, 255, 0), font=font)
 
-    img.save(PICTURE_NAME)
+    img.save(settings.PICTURE_NAME)
