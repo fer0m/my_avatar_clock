@@ -4,11 +4,12 @@ import logging
 from datetime import datetime
 
 import django
+import os
 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "proj.settings")
 django.setup()
 
 import asyncio
-import os
 import time
 
 from celery import Celery
