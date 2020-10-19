@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 async def change_photo(tg_user):
     client = TelegramClient('anon', tg_user.api_id, tg_user.api_hash)
+
     try:
         await client.connect()
         channel_entity = await client.get_me(input_peer=True)
@@ -23,6 +24,7 @@ async def change_photo(tg_user):
             await client(DeletePhotosRequest(current_photo))
             await client.upload_file(file=settings.PICTURE_NAME)
             await client(UploadProfilePhotoRequest(await client.upload_file(settings.PICTURE_NAME)))
+
         await client.disconnect()
 
     except Exception:
