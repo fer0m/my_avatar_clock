@@ -17,7 +17,7 @@ import environ
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONT_DIR = f'{BASE_DIR}/fonts/'
-print(FONT_DIR)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
