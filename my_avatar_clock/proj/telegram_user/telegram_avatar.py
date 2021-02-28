@@ -21,7 +21,9 @@ async def change_photo(tg_user):
 
         if await client.is_user_authorized():
             current_photo = await client.get_profile_photos(channel_entity)
-            await client(DeletePhotosRequest(current_photo))
+            if current_photo:
+                await client(DeletePhotosRequest(current_photo))
+
             await client.upload_file(file=settings.PICTURE_NAME)
             await client(UploadProfilePhotoRequest(await client.upload_file(settings.PICTURE_NAME)))
 

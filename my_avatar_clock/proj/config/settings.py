@@ -16,6 +16,8 @@ import os
 import environ
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 FONT_DIR = f'{BASE_DIR}/fonts/'
 
 # Quick-start development settings - unsuitable for production
@@ -122,6 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 #: Only add pickle to this list if your broker is secured
