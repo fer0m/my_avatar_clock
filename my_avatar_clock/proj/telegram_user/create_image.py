@@ -18,7 +18,9 @@ class AvatarCreator:
         width, height = 500, 500
 
         canvas = cls.create_canvas(width, height)
+
         cls.draw_time_on_canvas(image=canvas)
+        cls.draw_utc_zone(image=canvas)
 
         canvas.save(settings.PICTURE_NAME)
 
@@ -56,3 +58,14 @@ class AvatarCreator:
         width_font, height_font = draw.textsize(current_time, font)
         coordinate = ((image.width - width_font) / 2, (image.height - height_font) / 2)
         draw.text(coordinate, current_time, fill=(255, 255, 255), font=font)
+
+    @classmethod
+    def draw_utc_zone(cls, image):
+        current_zone = 'UTC +01:00'
+
+        draw = ImageDraw.Draw(image)
+        font = ImageFont.truetype(CURRENT_FONT, 60)
+
+        width_font, height_font = draw.textsize(current_zone, font)
+        coordinate = ((image.width - width_font) / 2, 380)
+        draw.text(coordinate, current_zone, fill=(255, 255, 255), font=font)
